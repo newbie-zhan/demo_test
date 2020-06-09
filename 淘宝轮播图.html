@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝轮播图</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.box {
+			position: relative;
+			width: 520px;
+			height: 280px;
+			background-color: pink;
+			margin: 100px auto;
+
+		}
+		/*并集选择器，集体声明，让代码更加简洁*/
+		.l,
+		.r {
+			/*只能用定位才能压住盒子*/
+			/*不占用位置，随便移动位置，必须用绝对定位*/
+			position: absolute;
+			top: 50%;
+			
+			margin-top: -15px;
+			/*绝对定位盒子 无须转换，直接给大小*/
+			width: 20px;
+			height: 30px;
+			background: rgba(0,0,0,.2);
+			color: #fff;
+			/*text-align: center;*/
+			line-height: 30px;
+			/*右上角*/
+			border-top-right-radius: 15px;
+			/*右下角*/
+			border-bottom-right-radius: 15px;
+
+		}
+		.l {
+			left: 0;
+			/*右上角*/
+			border-top-right-radius: 15px;
+			/*右下角*/
+			border-bottom-right-radius: 15px;
+
+		}
+		.r {
+			right: 0;
+			text-align: right;
+			/*border-top-left-radius: 15px;
+			border-bottom-left-radius: 15px;*/
+			border-radius: 15px 0 0 15px;
+		}
+		.l:hover,
+		.r:hover {
+			background: rgba(0,0,0,.4);
+		}
+		.circle {
+			position: absolute;
+			left: 50%;
+			margin-left: -35px;
+			width: 70px;
+			height: 13px;
+			bottom: 15px;
+			/*255白色*/
+			background: rgba(255,255,255,.3);
+			border-radius: 7px;
+		}
+		.circle li {
+			float: left;
+			width: 8px;
+			height: 8px;
+			background-color: #fff;
+			margin: 3px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		/*此处要注意 优先级问题 上面的权重是11 必须大于才能有效*/
+		.circle .current {
+			background-color: #ff5000;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="box">
+		<!-- 左按钮 -->
+		<a href="#" class="l"><</a>
+		<!-- 右按钮 -->
+		<a href="#" class="r">></a>
+		<!-- 图片 -->
+		<img src="images/taobao.jpg" alt="">
+		<!-- 小圆点 -->
+		<ul class="circle" >
+			<li></li>
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>
